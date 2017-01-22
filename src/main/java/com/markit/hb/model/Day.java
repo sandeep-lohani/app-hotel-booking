@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.markit.hb.exception.BookingNotAvailableException;
 
-public class Day {
+public final class Day {
 
 	private final Date date;
 

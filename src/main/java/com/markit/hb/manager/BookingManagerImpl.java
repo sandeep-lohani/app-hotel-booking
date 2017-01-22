@@ -52,10 +52,10 @@ public class BookingManagerImpl implements BookingManager{
         List<Booking> bookings = HotelDB.getBookingDetails().get(new Day(date));
 		List<Integer> availableList = new ArrayList<>();
 		List<Integer> bookedList = new ArrayList<>();
+		for (Integer i : HotelDB.getAllRooms()) {
+			availableList.add(i);
+		}
 		synchronized (bookings) {
-			for (Integer i : HotelDB.getAllRooms()) {
-				availableList.add(i);
-			}
 			bookings.forEach(b -> bookedList.add(b.getRoom().getRoomNumber()));
 		}
 		availableList.removeAll(bookedList);
